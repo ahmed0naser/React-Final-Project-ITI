@@ -1,13 +1,39 @@
 import { useForm } from "react-hook-form";
-
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 export default function PostForm() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    console.log(data);
+    let img = "/default.png";
+    if (data.imgURL) {
+      img = data.imgURL;
+    }
+    try {
+      const response = await axios.post("http://localhost:3001/posts", {
+        title: data.title,
+        description: data.description,
+        imgURL: img,
+        author: "test for now",
+        userId: 1,
+      });
+      console.log(response);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+      console.log(error);
+      toast.error("something went wrong", {
+        position: "bottom-right",
+      });
+    }
+  };
 
   return (
     <div className="flex justify-center items-center ">
@@ -76,6 +102,7 @@ export default function PostForm() {
           <input className="btn btn-neutral mt-4" type="submit" />
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 }

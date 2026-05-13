@@ -1,0 +1,130 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "ahmed@example.com",
+      "password": "123456",
+      "name": "Ahmed Ali"
+    },
+    {
+      "id": 2,
+      "email": "sara@example.com",
+      "password": "123456",
+      "name": "Sara Mohamed"
+    },
+    {
+      "id": 3,
+      "email": "omar@example.com",
+      "password": "123456",
+      "name": "Omar Hassan"
+    },
+    {
+      "email": "ahmednaser8454@gmail.com",
+      "password": "$2a$10$l6HfBJx0cW5u9I1dOSGjY.s4cnHJV8h1GpdyyMRayxSH1RpYs8O/W",
+      "name": "ahmed",
+      "id": 4
+    },
+    {
+      "email": "ahmednaser844@gmail.com",
+      "password": "$2a$10$8r/nc9KXIKPmiVsNGLP7x.azKYhrFHLYFIow9w3T058bGAye5tG7.",
+      "name": "ahmed",
+      "id": 5
+    },
+    {
+      "email": "yousef@gmail.com",
+      "password": "$2a$10$xnx5Y4SXKgytSlr7GlAkMewKeWU8AzH7hbPTJkZ.F90pfjOBkx8ki",
+      "name": "yousef",
+      "id": 6
+    },
+    {
+      "email": "ahmednaser54@gmail.com",
+      "password": "$2a$10$/Sl5pFae5iWhQ5a8GO.w5OWaIsh7an9eTZYD8/6JneIStnmObsvK.",
+      "name": "ahmed",
+      "id": 7
+    },
+    {
+      "email": "ahmednaser8@gmail.com",
+      "password": "$2a$10$O2uxqOb7CA0uWkfPRUlejuPzCEE3dxuWzJ3CLzAY9KgqOcs8U2RY2",
+      "name": "ahmed",
+      "id": 8
+    },
+    {
+      "email": "ahmednaser@gmail.com",
+      "password": "$2a$10$B4POr9MqoGtdUfeyL7vgzuBnB.sa2CcfAmuML5H8HAKgA4s4c0Sui",
+      "name": "ahmed",
+      "id": 9
+    },
+    {
+      "email": "ahmednaser0@gmail.com",
+      "password": "$2a$10$4IcQjE8IV70jTBqelHbor.QnIvZCkLz31zi7r29MyTSU37qzPODYW",
+      "name": "ahmed",
+      "id": 10
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Getting Started with React",
+      "description": "React makes it painless to create interactive UIs. Learn the basics of components, props, and state.",
+      "imgURL": "https://images.unsplash.com/photo-1633356122544-f134324a6cee",
+      "author": "Ahmed Ali",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "title": "Why Tailwind CSS is Powerful",
+      "description": "Tailwind CSS allows you to build modern designs without leaving your HTML.",
+      "imgURL": "https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19",
+      "author": "Sara Mohamed",
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "title": "JavaScript Tips Every Developer Should Know",
+      "description": "Improve your JavaScript skills with these practical tips and tricks.",
+      "imgURL": "https://images.unsplash.com/photo-1505685296765-3a2736de412f",
+      "author": "Omar Hassan",
+      "userId": 3
+    },
+    {
+      "id": 4,
+      "title": "Understanding useEffect in React",
+      "description": "useEffect helps you handle side effects in React components efficiently.",
+      "imgURL": "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+      "author": "Ahmed Ali",
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "title": "Building a Clean UI with DaisyUI",
+      "description": "DaisyUI provides ready-made Tailwind components for faster development.",
+      "imgURL": "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
+      "author": "Sara Mohamed",
+      "userId": 2
+    },
+    {
+      "title": "test1",
+      "description": "this is just a test so don't mind it",
+      "imgURL": "../images/default.png",
+      "author": "test for now",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "title": "test2",
+      "description": "test2 for the default img",
+      "imgURL": "/public/default.png",
+      "author": "test for now",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "title": "test3",
+      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "imgURL": "/default.png",
+      "author": "test for now",
+      "userId": 1,
+      "id": 8
+    }
+  ]
+}

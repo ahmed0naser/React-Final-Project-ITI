@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 export default function Register() {
-  //register
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -9,7 +12,22 @@ export default function Register() {
   } = useForm();
   const password = watch("password");
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post("http://localhost:3001/register", {
+        email: data.email,
+        password: data.password,
+        name: data.name,
+      });
+      console.log(response);
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+      toast.error("something went wrong try again later", {
+        position: "bottom-right",
+      });
+    }
+  };
   return (
     <div className="flex justify-center items-center mt-15">
       <form
@@ -32,6 +50,31 @@ export default function Register() {
         />
         {errors.email && (
           <label className="text-red-500 text-sm">{errors.email.message}</label>
+        )}
+
+        <label className="label">Name</label>
+        <input
+          className="input"
+          placeholder="Name"
+          type="text"
+          {...register("name", {
+            pattern: {
+              value: /^[A-Za-z ]+$/i,
+              message: "Invalid name use characters only",
+            },
+            required: "Please provide a name",
+            minLength: {
+              value: 3,
+              message: "Name must be atleast 3 characters",
+            },
+            maxLength: {
+              value: 50,
+              message: "Name must be less than 50 characters",
+            },
+          })}
+        />
+        {errors.name && (
+          <label className="text-red-500 text-sm">{errors.name.message}</label>
         )}
 
         <label className="label">Password</label>
@@ -80,8 +123,11 @@ export default function Register() {
           </label>
         )}
 
-        <button className="btn btn-neutral mt-4">Sign up</button>
+        <button type="submit" className="btn btn-neutral mt-4">
+          Sign up
+        </button>
       </form>
+      <ToastContainer />
     </div>
   );
 }

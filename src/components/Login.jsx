@@ -1,13 +1,33 @@
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 export default function Login() {
-  //register
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    console.log(data);
+    try {
+      const response = await axios.post("http://localhost:3001/login", {
+        email: data.emailLogin,
+        password: data.PasswordLogin,
+      });
+      console.log(response);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+      console.log(error);
+      toast.error("something went wrong please enter valid credenetials", {
+        position: "bottom-right",
+      });
+    }
+  };
   return (
     <div className="flex justify-center items-center mt-15">
       <form
@@ -56,8 +76,11 @@ export default function Login() {
             {errors.PasswordLogin.message}
           </label>
         )}
-        <button className="btn btn-neutral mt-4">Login</button>
+        <button type="submit" className="btn btn-neutral mt-4">
+          Login
+        </button>
       </form>
+      <ToastContainer />
     </div>
   );
 }
