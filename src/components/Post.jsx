@@ -1,5 +1,10 @@
 // import work2 from "../images/work2.png";
-export default function Post({ post }) {
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+export default function Post({ post, editPost, deletePost }) {
+  const { user } = useContext(AuthContext);
+
+  const isAuthor = user?.id === post.userId;
   return (
     <div className="card shadow-sm bg-stone-400 w-100">
       <figure>
@@ -12,8 +17,22 @@ export default function Post({ post }) {
           <h6 className="text-sm">Author: {post.author}</h6>
         </div>
         <div className="card-actions justify-center">
-          <button className="text-sm btn btn-primapry">edit</button>
-          <button className="text-sm btn btn-primapry">Delete</button>
+          {isAuthor && (
+            <>
+              <button
+                className="text-sm btn btn-primapry"
+                onClick={() => editPost(post)}
+              >
+                edit
+              </button>
+              <button
+                className="text-sm btn btn-primapry"
+                onClick={() => deletePost(post)}
+              >
+                Delete
+              </button>
+            </>
+          )}
         </div>
       </div>
     </div>

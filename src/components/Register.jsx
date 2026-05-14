@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../context/AuthContext";
 export default function Register() {
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -11,6 +14,7 @@ export default function Register() {
     watch,
   } = useForm();
   const password = watch("password");
+  const { login } = useContext(AuthContext);
 
   const onSubmit = async (data) => {
     try {
@@ -20,6 +24,7 @@ export default function Register() {
         name: data.name,
       });
       console.log(response);
+      login(response.data.user);
       navigate("/");
     } catch (error) {
       console.error(error);

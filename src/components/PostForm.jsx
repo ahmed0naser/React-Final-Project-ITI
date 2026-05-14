@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 export default function PostForm() {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -22,7 +25,7 @@ export default function PostForm() {
         description: data.description,
         imgURL: img,
         author: "test for now",
-        userId: 1,
+        userId: user.id,
       });
       console.log(response);
       navigate("/");

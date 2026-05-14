@@ -59,6 +59,12 @@
       "password": "$2a$10$4IcQjE8IV70jTBqelHbor.QnIvZCkLz31zi7r29MyTSU37qzPODYW",
       "name": "ahmed",
       "id": 10
+    },
+    {
+      "email": "hossam@gmail.com",
+      "password": "$2a$10$N6ygPUCGdciQl6Kyi8EZAOWJNoqVkwhgAPChhKpw1oCkURz8.19m6",
+      "name": "hossam",
+      "id": 11
     }
   ],
   "posts": [
@@ -125,6 +131,22 @@
       "author": "test for now",
       "userId": 1,
       "id": 8
+    },
+    {
+      "title": "ahmed post",
+      "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "imgURL": "/default.png",
+      "author": "test for now",
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "title": "edit test",
+      "description": "tesssssssssssssssssssst",
+      "imgURL": "/default.png",
+      "author": "test for now",
+      "userId": 11,
+      "id": 10
     }
   ]
 }

@@ -1,7 +1,12 @@
 import { NavLink } from "react-router";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+
 export default function NavBar() {
-  const isLogged = false;
-  const fakeUser = "Ahmed";
+  const { user, logout } = useContext(AuthContext);
+  const isLogged = !!user;
+  // const isLogged = false;
+  // const fakeUser = "Ahmed";
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm sticky top-0 z-10 ">
@@ -26,7 +31,12 @@ export default function NavBar() {
                 </li>
               </>
             ) : (
-              <p>hi {fakeUser}</p>
+              <>
+                <p>hi {user.name}</p>
+                <button onClick={logout} className="btn btn-ghost text-xl">
+                  logout
+                </button>
+              </>
             )}
           </ul>
         </div>

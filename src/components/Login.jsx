@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../context/AuthContext";
 export default function Login() {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const {
     register,
@@ -19,6 +22,7 @@ export default function Login() {
         password: data.PasswordLogin,
       });
       console.log(response);
+      login(response.data.user);
       navigate("/");
     } catch (error) {
       console.log(error.message);
