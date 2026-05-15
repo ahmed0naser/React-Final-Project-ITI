@@ -15,18 +15,15 @@ export default function Login() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       const response = await axios.post("http://localhost:3001/login", {
         email: data.emailLogin,
         password: data.PasswordLogin,
       });
-      console.log(response);
+
       login(response.data.user);
       navigate("/");
     } catch (error) {
-      console.log(error.message);
-      console.log(error);
       toast.error("something went wrong please enter valid credenetials", {
         position: "bottom-right",
       });

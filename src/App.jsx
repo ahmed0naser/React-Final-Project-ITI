@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import Background from "./components/Background";
 // import PostForm from "./components/PostForm";
 
 export default function App() {
@@ -34,8 +35,13 @@ export default function App() {
   };
   return (
     <>
-      <ListOfPosts posts={posts} editPost={editPost} deletePost={deletePost} />
-
+      <Background>
+        <ListOfPosts
+          posts={posts}
+          editPost={editPost}
+          deletePost={deletePost}
+        />
+      </Background>
       {user && <AddBtn />}
       {/* <PostForm /> */}
     </>

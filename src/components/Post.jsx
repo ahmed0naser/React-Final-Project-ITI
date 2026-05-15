@@ -6,13 +6,17 @@ export default function Post({ post, editPost, deletePost }) {
 
   const isAuthor = user?.id === post.userId;
   return (
-    <div className="card shadow-sm bg-stone-400 w-100">
+    <div className="card shadow-sm bg-stone-700 w-150 md:w-96">
       <figure>
         <img className="w-full" src={post.imgURL} alt="profilePic" />
       </figure>
       <div className="card-body">
-        <h1 className="card-title">{post.title}</h1>
-        <p className="break-words whitespace-normal">{post.description}</p>
+        <h1 className="card-title text-3xl font-bold text-black">
+          {post.title}
+        </h1>
+        <p className="break-words whitespace-normal text-lg">
+          {post.description}
+        </p>
         <div className="card-actions justify-center">
           <h6 className="text-sm">Author: {post.author}</h6>
         </div>

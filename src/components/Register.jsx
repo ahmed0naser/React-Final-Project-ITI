@@ -23,11 +23,10 @@ export default function Register() {
         password: data.password,
         name: data.name,
       });
-      console.log(response);
+
       login(response.data.user);
       navigate("/");
     } catch (error) {
-      console.error(error);
       toast.error("something went wrong try again later", {
         position: "bottom-right",
       });

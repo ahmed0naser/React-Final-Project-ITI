@@ -1,37 +1,71 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useNavigate } from "react-router";
-import { useContext } from "react";
+import { useNavigate, useParams } from "react-router";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 export default function PostForm() {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
+  const { id } = useParams();
+  console.log(id);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
+  useEffect(() => {
+    if (id) {
+      axios.get(`http://localhost:3001/posts/${id}`).then((res) => {
+        if (res.data.userId != user.id) {
+          toast.error("You are not the author");
+
+          navigate("/");
+          return;
+        }
+        reset(res.data);
+      });
+    }
+  }, [id, reset, user.id]);
+
   const onSubmit = async (data) => {
-    console.log(data);
     let img = "/default.png";
     if (data.imgURL) {
       img = data.imgURL;
     }
+    if (id) {
+      try {
+        await axios.patch(`http://localhost:3001/posts/${id}`, {
+          title: data.title,
+          description: data.description,
+          imgURL: img,
+          author: user.name,
+          userId: user.id,
+        });
+        toast.success("Post updated!");
+      } catch (e) {
+        toast.error("something went wrong", {
+          position: "bottom-right",
+        });
+      }
+      navigate("/");
+      return;
+    }
+
     try {
       const response = await axios.post("http://localhost:3001/posts", {
         title: data.title,
         description: data.description,
         imgURL: img,
-        author: "test for now",
+        author: user.name,
         userId: user.id,
       });
-      console.log(response);
+
       navigate("/");
     } catch (error) {
-      console.log(error.message);
-      console.log(error);
       toast.error("something went wrong", {
         position: "bottom-right",
       });

@@ -9,6 +9,7 @@ import PostForm from "./components/PostForm";
 import Register from "./components/Register";
 import AuthProvider from "./context/AuthContext.jsx";
 import ProtectedPostForm from "./components/ProtectPostForm.jsx";
+import NotFound from "./components/NotFound.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -37,6 +38,7 @@ createRoot(document.getElementById("root")).render(
               </ProtectedPostForm>
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
