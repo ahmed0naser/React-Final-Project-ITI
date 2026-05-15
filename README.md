@@ -1,9 +1,3 @@
-# To run the project run the following commands in diffrent terminals
+# To run the project run the following command
 
-## first:
-
-node js-server.js
-
-## then:
-
-npm run dev
+npm run start
